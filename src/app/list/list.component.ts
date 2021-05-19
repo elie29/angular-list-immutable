@@ -18,4 +18,11 @@ export class ListComponent {
     // names content is changed everywhere
     this.names[0] = '' + Math.random();
   }
+
+  changeImmutableInnerList(): void {
+    const tmp = [...this.names]; // clone te array first
+    tmp[0] = '' + Math.random(); // modify
+    this.names = tmp; // Once changed, names won't affect the list outside this component
+    console.log(this.names);
+  }
 }

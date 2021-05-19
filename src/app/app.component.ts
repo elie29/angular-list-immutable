@@ -15,4 +15,11 @@ export class AppComponent {
     // an event is occurred on the component (eg. mouseover on list.component)
     this.names[1] = '' + Math.random();
   }
+
+  changeImmutableList(): void {
+    const tmp = [...this.names]; // clone te array first
+    tmp[1] = '' + Math.random(); // modify
+    this.names = tmp; // change
+    console.log(this.names);
+  }
 }
