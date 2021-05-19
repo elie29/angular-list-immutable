@@ -1,4 +1,9 @@
-<list name="{{ name }}" [names]="names"></list> <br /><br />
+<list
+  name="{{ name }}"
+  [names]="names"
+  (changedList)="changeListParent($event)"
+></list>
+<br /><br />
 
 <h1>Another component with the same list :)</h1>
 <ul>

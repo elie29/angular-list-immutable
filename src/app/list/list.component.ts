@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'list',
@@ -11,6 +11,8 @@ export class ListComponent {
   @Input() name: string;
   @Input() names: string[] = [];
 
+  @Output() changedList = new EventEmitter<string[]>();
+
   isBold = false;
 
   changeList(): void {
@@ -19,10 +21,9 @@ export class ListComponent {
     this.names[0] = '' + Math.random();
   }
 
-  changeImmutableInnerList(): void {
+  changeImmutableList(): void {
     const tmp = [...this.names]; // clone te array first
     tmp[0] = '' + Math.random(); // modify
-    this.names = tmp; // Once changed, names won't affect the list outside this component
-    console.log(this.names);
+    this.changedList.emit(tmp); // send to parent a new copy
   }
 }

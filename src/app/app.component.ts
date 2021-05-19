@@ -22,4 +22,9 @@ export class AppComponent {
     this.names = tmp; // change
     console.log(this.names);
   }
+
+  changeListParent(data: string[]): void {
+    this.names = data;
+    console.log(this.names);
+  }
 }
