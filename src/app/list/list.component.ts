@@ -22,7 +22,7 @@ export class ListComponent {
   }
 
   changeImmutableList(): void {
-    const tmp = [...this.names]; // clone te array first
+    const tmp = [...this.names]; // clone the array first
     tmp[0] = '' + Math.random(); // modify
     this.changedList.emit(tmp); // send to parent a new copy
   }
