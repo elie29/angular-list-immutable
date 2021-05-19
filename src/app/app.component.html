@@ -1,0 +1,10 @@
+<list name="{{ name }}" [names]="names"></list> <br /><br />
+
+<h1>Another component with the same list :)</h1>
+<ul>
+  <li *ngFor="let v of names">{{ v }}</li>
+</ul>
+<button type="button" (click)="changeList()" class="btn btn-warning">
+  Change list</button
+>&nbsp;
+<i>Then mouseover the first list</i>
